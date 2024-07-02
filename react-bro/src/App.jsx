@@ -1,14 +1,8 @@
-import Header from "./Header";
-import Food from "./Food";
-import Footer from "./Footer";
-function App() {
-  return (
+import Lists from "./Lists"
+export default function App() {
+	return (
 		<>
-      <Header />
-      <Food/>
-			<Footer />
+			<Lists/>
 		</>
 	);
 }
-
-export default App
