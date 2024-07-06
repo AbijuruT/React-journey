@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
 import HomePage from './pages/HomePage';
+import JobsPage from './pages/JobsPage';
 const router = createBrowserRouter(
 	//we are using index instead of path because we want to show homepage or a page
 	//For instance <Route path='/about'/ element={<p>About</p>} />
@@ -13,6 +14,7 @@ const router = createBrowserRouter(
 		//Creating a layout
 		<Route path='/' element={<MainLayout />}>
 			<Route index element={<HomePage />} />
+			<Route path='/jobs' element={<JobsPage />} />
 		</Route>
 	)
 );
