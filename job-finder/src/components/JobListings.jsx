@@ -1,7 +1,8 @@
 import jobs from '../jobs.json';
 import SingleJobListing from './SingleJobListing';
 const JobListings = () => {
-	// console.log(jobs);
+	// This is in order to get 3 recent jobs from the listing
+	const recentJobs = jobs.slice(0, 3);
 	return (
 		<section className='bg-blue-50 px-4 py-10'>
 			<div className='container-xl lg:container m-auto'>
@@ -9,7 +10,7 @@ const JobListings = () => {
 					Browse Jobs
 				</h2>
 				<div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
-					{jobs.map((job) => (
+					{recentJobs.map((job) => (
 						<SingleJobListing key={job.id} job={job} />
 					))}
 				</div>
