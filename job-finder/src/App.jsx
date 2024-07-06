@@ -10,6 +10,7 @@ const router = createBrowserRouter(
 	//we are using index instead of path because we want to show homepage or a page
 	//For instance <Route path='/about'/ element={<p>About</p>} />
 	createRoutesFromElements(
+		//Creating a layout
 		<Route path='/' element={<MainLayout />}>
 			<Route index element={<HomePage />} />
 		</Route>
