@@ -2,11 +2,11 @@ import { useState } from 'react';
 import { FaMapMarker } from 'react-icons/fa';
 const SingleJobListing = ({ job }) => {
 	// Bringing in state
-	const [showFullDescription, setShowFullDescription] = useState(false);
+	const [showFullDescription, setShowFullDescription] = useState(false); // seting the default value to false
 	let description = job.description;
 
 	if (!showFullDescription) {
-		description = description.substring(0, 90) + '...';
+		description = description.substring(0, 90) + '...'; //Cutting text and adjusting elipses
 	}
 	return (
 		<div className='bg-white rounded-xl shadow-md relative'>
@@ -17,7 +17,7 @@ const SingleJobListing = ({ job }) => {
 				</div>
 
 				<div className='mb-5'>{description}</div>
-				{/* Managing state */}
+				{/* Managing state right the button*/}
 				<button
 					onClick={() => setShowFullDescription((prevState) => !prevState)}
 					className='text-indigo-500 mb-4 hover:text-indigo-600'>
