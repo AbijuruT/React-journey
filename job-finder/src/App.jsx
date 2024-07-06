@@ -1,17 +1,16 @@
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import HomeCards from './components/HomeCards';
-import JobListings from './components/JobListings';
-import ViewAll from './components/ViewAll';
+import {
+	Route,
+	createBrowserRouter,
+	createRoutesFromElements,
+	RouterProvider,
+} from 'react-router-dom';
+import HomePage from './pages/HomePage';
+const router = createBrowserRouter(
+	//we are using index instead of path because we want to show homepage or a page
+	//For instance <Route path='/about'/ element={<p>About</p>} />
+	createRoutesFromElements(<Route index element={<HomePage />} />)
+);
 const App = () => {
-	return (
-		<>
-			<Navbar />
-			<Hero />
-			<HomeCards />
-			<JobListings />
-			<ViewAll />
-		</>
-	);
+	return <RouterProvider router={router} />;
 };
 export default App;
