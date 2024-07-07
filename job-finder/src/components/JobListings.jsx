@@ -9,9 +9,12 @@ const JobListings = ({ isHome = false }) => {
 	useEffect(() => {
 		// Creating async await,.
 		const fetchJobs = async () => {
+			const apiUrl = isHome
+				? 'http://localhost:5000/jobs?_limit=3'
+				: 'http://localhost:5000/jobs';
 			//add try and catch
 			try {
-				const response = await fetch('http://localhost:5000/jobs/');
+				const response = await fetch(apiUrl);
 				const data = await response.json();
 				setJobs(data);
 			} catch (error) {
