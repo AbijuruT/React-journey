@@ -1,8 +1,8 @@
 // import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import Spinner from '../components/Spinner';
+import { useParams, useLoaderData } from 'react-router-dom';
 const JobPage = () => {
 	const { id } = useParams();
+	const job = useLoaderData();
 	// const [job, setJob] = useState(null);
 	// const [loading, setLoading] = useState(true);
 	// useEffect(() => {
@@ -19,11 +19,11 @@ const JobPage = () => {
 	// 	};
 	// 	fetchJob();
 	// }, []);
-	return loading ? <Spinner /> : <h1>{job.title}</h1>;
+	return <h1>{job.title}</h1>;
 };
 
 const jobLoader = async ({ params }) => {
-	const res = await fetch(`/api/jobs/${params}`);
+	const res = await fetch(`/api/jobs/${params.id}`);
 	const data = await res.json();
 	return data;
 };
