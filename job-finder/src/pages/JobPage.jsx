@@ -22,5 +22,9 @@ const JobPage = () => {
 	return loading ? <Spinner /> : <h1>{job.title}</h1>;
 };
 
-// const jobLoader = async({params})
-export default JobPage;
+const jobLoader = async ({ params }) => {
+	const res = await fetch(`/api/jobs/${params}`);
+	const data = await res.json();
+	return data;
+};
+export { JobPage as default, jobLoader };
