@@ -83,20 +83,6 @@
         "contactEmail": "contact@ipsumlorem.com",
         "contactPhone": "555-555-5555"
       }
-    },
-    {
-      "id": "94a0",
-      "title": "Test job 1",
-      "type": "Remote",
-      "location": "Kigali",
-      "description": "This is a test",
-      "salary": "$125K - 150K",
-      "company": {
-        "name": "Irwanda",
-        "description": "This a company from kigali",
-        "contactEmail": "irwanda@irwanda.com",
-        "contactPhone": "+250788845463"
-      }
     }
   ]
 }
