@@ -10,6 +10,7 @@ import JobsPage from './pages/JobsPage';
 import NotFound from './pages/NotFound';
 import JobPage, { jobLoader } from './pages/JobPage';
 import AddJobPage from './pages/AddJobPage';
+import EditJobPage from './pages/EditJobPage';
 
 const App = () => {
 	//Function to add job received as a prop
@@ -39,6 +40,11 @@ const App = () => {
 				<Route index element={<HomePage />} />
 				<Route path='/jobs' element={<JobsPage />} />
 				<Route path='/add-job' element={<AddJobPage addJobSubmit={addJob} />} />
+				<Route
+					path='/edit-job/:id'
+					element={<EditJobPage />}
+					loader={jobLoader}
+				/>
 				<Route
 					path='/jobs/:id'
 					element={<JobPage deleteJob={deleteJob} />}
