@@ -1,16 +1,33 @@
 import { useState } from 'react';
-const AddJobPage = () => {
+import { useNavigate } from 'react-router-dom';
+const AddJobPage = ({ addJobSubmit }) => {
 	const [title, setTitle] = useState('');
-	const [type, setType] = useState('');
+	const [type, setType] = useState('Full-Time');
 	const [location, setLocation] = useState('');
 	const [description, setDescription] = useState('');
-	const [salary, setSalary] = useState('');
+	const [salary, setSalary] = useState('Under $50K');
 	const [companyName, setCompanyName] = useState('');
 	const [companyDescription, setCompanyDescription] = useState('');
 	const [contactEmail, setContactEmail] = useState('');
-  const [contactPhone, setContactPhone] = useState('');
+	const [contactPhone, setContactPhone] = useState('');
+	const navigate = useNavigate(); //Initializing navigate for redirection
 	const submitForm = (e) => {
 		e.preventDefault();
+		const newJob = {
+			title,
+			type,
+			location,
+			description,
+			salary,
+			company: {
+				name: companyName,
+				description: companyDescription,
+				contactEmail,
+				contactPhone,
+			},
+		};
+		addJobSubmit(newJob);
+		return navigate('/jobs');
 	};
 	return (
 		<section className='bg-indigo-50'>
