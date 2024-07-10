@@ -31,6 +31,17 @@ const App = () => {
 		});
 		return;
 	};
+	//Function to edit job received as a prop
+	const updateJob = async (job) => {
+		const res = await fetch(`/api/jobs/${job.id}`, {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(job),
+		});
+		return;
+	};
 	const router = createBrowserRouter(
 		//we are using index instead of path because we want to show homepage or a page
 		//For instance <Route path='/about'/ element={<p>About</p>} />
@@ -42,7 +53,7 @@ const App = () => {
 				<Route path='/add-job' element={<AddJobPage addJobSubmit={addJob} />} />
 				<Route
 					path='/edit-job/:id'
-					element={<EditJobPage />}
+					element={<EditJobPage updateJobSubmit={updateJob} />}
 					loader={jobLoader}
 				/>
 				<Route
